@@ -33,79 +33,9 @@ if (flashData) {
         type: flashData.tipe
     })
 };
-tinymce.init({
-    selector: 'textarea#des',
-});
 </script>
 
-<!-- script ajax -->
-<script>
-$(document).on('click', '.hps-btn', function() {
-    var id = $(this).attr('id');
-    let ID = $(this).attr('data-id-product');
-    $.ajax({
-        type: 'POST',
-        url: "http://localhost/dewacoffee/dashboard/delete_img",
-        data: {
-            id: id,
-            ID: ID,
-        },
-        success: function() {
-            window.window.location.href = 'http://localhost/dewacoffee/dashboard/edit_product/' +
-                ID;
-        },
-        error: function(response) {
-            console.log(response.responseText);
-        }
-    });
-});
-$(document).on('click', '.active-btn', function() {
-    var id = $(this).attr('id');
-    let ID = $(this).attr('data-id-product');
-    $.ajax({
-        type: 'POST',
-        url: "http://localhost/dewacoffee/dashboard/active_img",
-        data: {
-            id: id,
-            ID: ID,
-        },
-        success: function() {
-            window.window.location.href = 'http://localhost/dewacoffee/dashboard/edit_product/' +
-                ID;
-        },
-        error: function(response) {
-            console.log(response.responseText);
-        }
-    });
-});
-$(document).on('click', '.hps-data', function() {
-    let id = $(this).attr('id');
-    let url = $(this).attr('data-url-page');
-    let urlReturn = $(this).attr('data-page-return');
-    $.ajax({
-        type: 'POST',
-        url: url,
-        data: {
-            id: id,
-        },
-        success: function() {
-            Swal.fire({
-                title: 'Dewa Coffee',
-                text: "Data Berhasil Di Hapus",
-                icon: 'success',
-                type: 'success',
-                showConfirmButton: false,
-            })
-            setInterval(function() {
-                window.location.href = urlReturn;
-            }, 500);
-        },
-        error: function(response) {
-            console.log(response.responseText);
-        }
-    });
-});
-</script>
+
 </body>
 
 </html>
