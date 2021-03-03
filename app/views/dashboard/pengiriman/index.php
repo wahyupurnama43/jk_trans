@@ -9,7 +9,7 @@
                     <button class="btn btn-info text-white btn-sm" data-toggle="modal" data-target="#rangetanggal">
                         <span class="btn-inner--text ">Print</span>
                     </button>
-                    <a href="<?= BASEURL ?>/prints" class="btn btn-success text-white btn-sm">
+                    <a href="<?= BASE_URL ?>/prints" class="btn btn-success text-white btn-sm">
                         <span class="btn-inner--text ">Print all</span>
                     </a>
                     <!-- Button trigger modal -->
