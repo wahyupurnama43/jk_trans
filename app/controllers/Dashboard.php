@@ -31,13 +31,23 @@ class Dashboard extends Controller {
 				header('Location: '.BASE_URL.'/dashbord/pengiriman');
 			}
 		}else{
-            $data['header'] = 'Dashboard';
-            $data['link_header'] = 'Pengiriman';
-            $data['page'] = 'Home';
-			$data['pengiriman'] = $this->model('M_Pengiriman')->getAll();
-            $this->view('template/header', $data);
-            $this->view('dashboard/pengiriman/index',$data);
-            $this->view('template/footer');
+			if(isset($_SESSION) && $_SESSION['login'] == true){
+				if(isset($_SESSION) && $_SESSION['admin'] == true){
+					$data['header'] = 'Dashboard';
+					$data['link_header'] = 'Pengiriman';
+					$data['page'] = 'Home';
+					$data['pengiriman'] = $this->model('M_Pengiriman')->getAll();
+					$this->view('template/header', $data);
+					$this->view('dashboard/pengiriman/index',$data);
+					$this->view('template/footer');
+				}else{
+					Flasher::setFlash('login terlebih dahulu','error');
+					header('Location: '.BASE_URL.'/auth');
+				}
+			}else{
+				Flasher::setFlash('login terlebih dahulu','error');
+				header('Location: '.BASE_URL.'/auth');
+			}
         }
 	}
 	public function edit_pengiriman($id)
@@ -48,13 +58,23 @@ class Dashboard extends Controller {
 				header('Location: '.BASE_URL.'/dashbord/pengiriman');
 			}
 		}else{
-            $data['header'] = 'Dashboard';
-            $data['link_header'] = 'Pengiriman';
-            $data['page'] = 'Home';
-			$data['pengiriman'] = $this->model('M_Pengiriman')->getData($id);
-            $this->view('template/header', $data);
-            $this->view('dashboard/pengiriman/edit',$data);
-            $this->view('template/footer');
+			if(isset($_SESSION) && $_SESSION['login'] == true){
+				if(isset($_SESSION) && $_SESSION['admin'] == true){
+					$data['header'] = 'Dashboard';
+					$data['link_header'] = 'Pengiriman';
+					$data['page'] = 'Home';
+					$data['pengiriman'] = $this->model('M_Pengiriman')->getData($id);
+					$this->view('template/header', $data);
+					$this->view('dashboard/pengiriman/edit',$data);
+					$this->view('template/footer');
+				}else{
+					Flasher::setFlash('login terlebih dahulu','error');
+					header('Location: '.BASE_URL.'/auth');
+				}
+			}else{
+				Flasher::setFlash('login terlebih dahulu','error');
+				header('Location: '.BASE_URL.'/auth');
+			}
         }
 	}
 	public function delete_pengiriman($id)
