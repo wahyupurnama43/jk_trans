@@ -30,6 +30,7 @@
                             <th>Jumlah Barang</th>
                             <th>Berat</th>
                             <th>Harga</th>
+                            <th>Total</th>
                             <th>Penerima</th>
                             <th>Keterangan</th>
                             <th>Status</th>
@@ -43,8 +44,9 @@
                             <td><?= $i++ ?></td>
                             <td><?= $p['kode_pengiriman'] ?></td>
                             <td><?= $p['jumlah'] ?></td>
-                            <td><?= $p['berat'] ?></td>
-                            <td><?= $p['harga'] ?></td>
+                            <td><?= $p['berat']/1000 ?> kg</td>
+                            <td>Rp <?= $p['harga'] ?></td>
+                            <td>Rp <?= $p['harga']*$p['berat']/1000 ?></td>
                             <td><?= $p['penerima'] ?></td>
                             <td><?= $p['keterangan'] ?></td>
                             <td><?= ($p['status'] == '0' ) ? 'Belum Lunas' : 'Lunas' ?></td>
@@ -73,12 +75,12 @@
     <div class="modal-dialog m-w-d modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title" id="exampleModalLabel">Tambah Produk</h1>
+                <h1 class="modal-title" id="exampleModalLabel">Tambah Pengiriman</h1>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo BASE_URL ?>/prints/range" method="POST">
+            <form action="<?php echo BASE_URL ?>/dashboard/pengiriman" method="POST">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-6">
@@ -102,7 +104,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label">Harga</label>
+                                <label class="form-control-label">Harga (Rp)</label>
                                 <input type="number" class="form-control" placeholder="Harga" name="harga">
                             </div>
                         </div>

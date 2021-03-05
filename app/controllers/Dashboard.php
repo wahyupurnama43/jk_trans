@@ -10,8 +10,9 @@ class Dashboard extends Controller {
 				$data['header'] = 'Dashboard';
 				$data['link_header'] = 'dashboard';
 				$data['page'] = 'Home';
+				$data['count_pengiriman'] = $this->model('M_Pengiriman')->count();
 				$this->view('template/header',$data);
-				$this->view('dashboard/index');
+				$this->view('dashboard/index',$data);
 				$this->view('template/footer');
 			}else{
 				Flasher::setFlash('login terlebih dahulu','error');

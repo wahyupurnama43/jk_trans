@@ -110,7 +110,7 @@
     const flashData = $('.flash-data').data('flashdata');
     if (flashData) {
         Swal.fire({
-            title: 'Dewa Coffee',
+            title: 'JK Trans',
             text: flashData.pesan,
             icon: flashData.tipe,
             type: flashData.tipe

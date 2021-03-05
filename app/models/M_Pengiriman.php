@@ -31,6 +31,13 @@ class M_Pengiriman
         return $this->db->resultSet();
     }
 
+    public function count()
+    {
+        $sql = "SELECT count(*) as count FROM pengiriman";
+        $this->db->query($sql);
+        return $this->db->resultSet();
+    }
+
     public function upload()
     {
         $kode = htmlspecialchars($_POST['kode'],ENT_QUOTES);

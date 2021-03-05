@@ -23,6 +23,7 @@
                     <th>Jumlah Barang</th>
                     <th>Berat</th>
                     <th>Harga</th>
+                    <th>Total</th>
                     <th>Penerima</th>
                     <th>Keterangan</th>
                     <th>Status</th>
@@ -35,8 +36,9 @@
                     <td><?= $i++ ?></td>
                     <td><?= $p['kode_pengiriman'] ?></td>
                     <td><?= $p['jumlah'] ?></td>
-                    <td><?= $p['berat'] ?></td>
-                    <td><?= $p['harga'] ?></td>
+                    <td><?= $p['berat']/1000 ?> kg</td>
+                    <td>Rp <?= $p['harga'] ?></td>
+                    <td>Rp <?= $p['harga']*$p['berat']/1000 ?></td>
                     <td><?= $p['penerima'] ?></td>
                     <td><?= $p['keterangan'] ?></td>
                     <td><?= ($p['status'] == '0' ) ? 'Belum Lunas' : 'Lunas' ?></td>

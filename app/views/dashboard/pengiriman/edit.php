@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label">Harga</label>
+                                <label class="form-control-label">Harga (Rp)</label>
                                 <input type="text" class="form-control" placeholder="Harga" name="harga"
                                     value="<?= $data['pengiriman']['harga'] ?>">
                             </div>
